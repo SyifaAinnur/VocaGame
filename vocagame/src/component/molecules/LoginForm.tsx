@@ -33,16 +33,18 @@ export function LoginForm() {
             <p className="font-normal text-sm text-[#666666] sm:text-lg">
               Masukkan Username dan password anda untuk masuk
             </p>
-            <p className="dark:text-black">
-              Your Account
-              <br />
-              {dataRegister
-                ? JSON.stringify({
+            {dataRegister ? (
+              <p className="dark:text-black">
+                Your Account
+                <br />
+                {dataRegister
+                  ? JSON.stringify({
                     username: dataRegister?.name,
                     password: dataRegister?.password,
                   })
-                : "Please register first!"}
-            </p>
+                  : "Please register first!"}
+              </p>
+            ) : null}
           </div>
           <div className="w-full">
             <FormLogin />
@@ -51,7 +53,7 @@ export function LoginForm() {
             <p className="font-normal text-md leading-7 text-[#666] text-center sm:text-lg">
               Belom punya akun?{" "}
               <Link
-                href={"/"}
+                href={"/auth/register"}
                 className="font-bold text-[#131167] dark:text-[#D38122]"
               >
                 Daftar Sekarang
