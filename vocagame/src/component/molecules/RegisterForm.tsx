@@ -24,9 +24,10 @@ export function FormRegister() {
   });
 
   const onSubmit = (data: UserRegister) => {
+    console.log(data);
     setEncryptedCookie("register", data);
     dispatch(addUserRegis(data));
-    router.replace("/login");
+    router.replace("/auth/login");
   };
 
   return (
@@ -61,14 +62,14 @@ export function FormRegister() {
         name="noHp"
         render={({ field }) => (
           <>
-            <label htmlFor="handphone" className="text-[#fff]">
+            <label htmlFor="noHp" className="text-[#fff]">
               Nomor Anda
             </label>
             <Input
               colorEye="text-white"
-              id="handphone"
+              id="noHp"
               type="text"
-              placeholder="Nomor handphone anda"
+              placeholder="Nomor Handphone anda"
               {...field}
             />
             {errors.noHp && (
